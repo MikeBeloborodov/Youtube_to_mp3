@@ -1,6 +1,11 @@
 from fastapi import FastAPI
 import os
 import utils
+import telegram_bot as tb
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 # create Downloads folder
 if not os.path.exists(utils.PATH_TO_DOWNLOADS):
@@ -9,6 +14,12 @@ if not os.path.exists(utils.PATH_TO_DOWNLOADS):
 
 # initiate FastAPI app
 app = FastAPI()
+
+
+# initiate telegram bot
+telegram_token = os.environ["TELEGRAM_BOT_KEY"]
+telegram_chat_id = os.environ["TELEGRAM_BOT_CHAT_ID"]
+telegram_bot = tb.TelegramBot(telegram_token, telegram_chat_id)
 
 
 @app.get("/")
@@ -29,3 +40,8 @@ def youtube_downloader():
 @app.get("/delete_files")
 def delete_downloaded_files():
     utils.delete_files()
+
+
+@app.get("/telegram_message")
+async def send_message_to_telegram():
+    await telegram_bot.send_message("Hi from my API")

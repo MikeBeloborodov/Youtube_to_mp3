@@ -44,6 +44,7 @@ def delete_files() -> None:
     """
     Deletes all files in Downloads folder.
     """
+
     file_names = os.listdir(PATH_TO_DOWNLOADS)
     for file in file_names:
         os.remove(PATH_TO_DOWNLOADS + "/" + file)
