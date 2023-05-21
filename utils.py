@@ -5,6 +5,14 @@ from pytube import YouTube
 
 
 PATH_TO_DOWNLOADS = str(pathlib.Path(__file__).parent.resolve()) + '\Downloads'
+WELCOMING_MESSAGE = """
+Hello, this is a youtube video to mp3 converter.
+Commands:
+/start - Shows this message.
+/youtube <link to a youtube video> - Downloads and converts a youtube video into an mp3 format audio file,
+and sends it back to you.
+/delete - Deletes all previously downloaded files from the server.
+"""
 
 
 def convert_mp4_to_mp3(path_to_mp4: str, path_to_mp3: str) -> None:
