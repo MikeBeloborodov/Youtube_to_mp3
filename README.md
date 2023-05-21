@@ -1,4 +1,4 @@
-### This program converts a youtube video to mp3 audio only format and sends it to the preset telegram bot.
+### This program converts a youtube video to mp3 audio only format and sends it to a telegram bot.
 
 To create your own telegram chat bot:
 <br>1) Go to https://t.me/BotFather<br>
